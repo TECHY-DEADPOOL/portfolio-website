@@ -17,23 +17,20 @@
             background-size: cover;
             color: #fff;
             text-shadow: 1px 1px 2px black;
+            font-size: 22px; /* Increased base font size */
         }
         /* Sidebar styling */
         .sidebar {
-            height: 100%;
-            width: 60px; /* Initial width when collapsed */
+            height: 100vh; /* Use viewport height for full height */
+            width: 250px; /* Fixed width */
             position: fixed;
             top: 0;
             left: 0;
-            background-color: rgba(30, 144, 255, 0.8); /* Transparent blue */
-            transition: width 0.5s; /* Smooth slide-in effect */
-            z-index: 9999; /* Stay on top of other content */
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            background-color: rgba(30, 144, 255, 0.7); /* More transparent blue */
+            z-index: 9999;
             overflow-y: auto; /* Enable vertical scroll */
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-        }
-        .sidebar:hover {
-            width: 200px; /* Expanded width on hover */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5); /* Slightly darker shadow */
         }
         .sidebar ul {
             padding: 0;
@@ -48,28 +45,22 @@
             text-align: left;
         }
         .sidebar ul li a {
-            padding: 15px;
+            padding: 20px; /* Increase padding for better spacing */
             display: block;
             color: white;
             text-decoration: none;
             font-weight: bold;
             width: 100%;
-            transition: background-color 0.3s, padding-left 0.3s;
+            transition: background-color 0.3s;
+            font-size: 1.1em; /* Increase font size of sidebar links */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
         }
         .sidebar ul li a:hover {
-            background-color: #4682B4;
-            padding-left: 20px; /* Indentation on hover */
-        }
-        .sidebar ul li a span {
-            display: none; /* Hide text by default when sidebar is collapsed */
-        }
-        .sidebar:hover ul li a span {
-            display: inline; /* Show text when sidebar expands */
-            margin-left: 10px;
+            background-color: rgba(70, 130, 180, 0.8); /* Highlight color on hover */
         }
         .social-icon {
-            width: 30px;
-            height: 30px;
+            width: 40px; /* Increase icon size */
+            height: 40px;
             opacity: 0.7;
             transition: opacity 0.3s;
         }
@@ -78,62 +69,69 @@
         }
         /* Main content styling */
         main {
-            margin-left: 60px; /* Adjust this based on the sidebar's initial collapsed width */
-            padding: 20px;
-            transition: margin-left 0.5s;
+            margin-left: 250px; /* Adjust this based on the fixed sidebar width */
+            padding: 30px; /* Increased padding for more space */
         }
-        .sidebar:hover + main {
-            margin-left: 200px; /* Adjust this based on the sidebar's expanded width */
-        }
-        /* Section styling */
         section {
             margin-bottom: 40px;
             opacity: 1;
             transition: opacity 0.5s ease-in-out;
         }
-        section.hidden {
-            opacity: 0; /* Fully transparent when hidden */
-        }
         h1 {
             margin-bottom: 20px;
-            font-size: 30px;
-            color: #fff; /* White color for better visibility */
+            font-size: 40px; /* Increased font size */
+            color: #fff;
             text-align: center;
         }
         h2 {
             margin-bottom: 10px;
-            font-size: 28px; /* Increased font size */
+            font-size: 36px; /* Increased font size */
             color: #fff;
-            font-weight: bold; /* Make it bold */
-            text-decoration: underline; /* Underline */
-            text-decoration-color: rgba(255, 255, 255, 0.5); /* Optional: change underline color */
+            font-weight: bold;
+            text-decoration: underline;
+            text-decoration-color: rgba(255, 255, 255, 0.5);
         }
         p {
-            font-size: 18px;
-            color: #fff;
+            font-size: 22px; /* Increased font size */
         }
         /* Introduction styling */
         .introduction {
-            font-size: 20px; /* Adjust the font size */
-            text-align: center; /* Center the text */
-            margin: 20px 0; /* Space above and below */
-            color: #fff; /* White color for better visibility */
+            font-size: 24px; /* Increased font size */
+            text-align: center;
+            margin: 20px 0;
+            color: #fff;
         }
         .highlighted-name {
-            font-weight: bold; /* Make it bold */
-            color: #FFD700; /* Highlight color */
-            text-shadow: 1px 1px 2px black; /* Optional: Add shadow for visibility */
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 1px 1px 2px black;
         }
         /* Footer styling */
         footer {
             display: flex;
             justify-content: center;
             padding: 20px;
-            position: relative; /* Position relative to contain absolutely positioned elements */
+            position: relative;
         }
         .social-icons {
             display: flex;
-            gap: 20px; /* Space between icons */
+            gap: 20px;
+        }
+        /* Custom scrollbar styling */
+        .sidebar::-webkit-scrollbar {
+            width: 12px; /* Width of the scrollbar */
+        }
+        .sidebar::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.5); /* Color of the scrollbar */
+            border-radius: 10px; /* Rounded ends */
+        }
+        .sidebar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.2); /* Background of the scrollbar track */
+        }
+        /* Hidden class for vanishing effect */
+        .hidden {
+            opacity: 0; /* Make it invisible */
+            transition: opacity 0.5s ease-in-out; /* Smooth transition */
         }
     </style>
 </head>
@@ -165,9 +163,9 @@
             <h2>Educational Background</h2>
             <p><strong>Bachelor of Technology (B.Tech) in Computer Science and Engineering</strong><br>
             University of Engineering and Management (2024 - Present)</p>
-            <p><strong>Higher Secondary Education(2024 - Pass out)</strong><br>
+            <p><strong>Higher Secondary Education (2024 - Passout)</strong><br>
             Government Sponsored Multipurpose School (Boys), Taki House</p>
-            <p><strong>Secondary Education(2022 - pass out)</strong><br>
+            <p><strong>Secondary Education (2022 - Passout)</strong><br>
             Scottish Church Collegiate School</p>
         </section>
         <section id="experience" class="section">
@@ -176,7 +174,7 @@
         </section>
         <section id="publications" class="section">
             <h2>Publications</h2>
-            <p>At this stage, I have not yet contributed to any publications but I am keen to explore research opportunities in the future.</p>
+            <p>At this stage, I have not yet published any research, but I am eager to engage in research activities and contribute to academic publications in the future.</p>
         </section>
         <section id="awards" class="section">
             <h2>Awards</h2>
@@ -200,7 +198,7 @@
         </section>
         <section id="presentations" class="section">
             <h2>Presentations</h2>
-            <p>While I have not presented at any events yet, I am keen to share my insights and projects in future academic settings.</p>
+            <p>Group presentations on semiconductors and soft skills in Indian tourism, alongside contributions to a research review journal, demonstrate my commitment to academic engagement.</p>
         </section>
         <section id="courses" class="section">
             <h2>Courses</h2>
@@ -226,12 +224,21 @@
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    entry.target.classList.add('hidden'); // Add class to hide
-                } else {
+                if (entry.isIntersecting) {
                     entry.target.classList.remove('hidden'); // Remove class to show
+                } else {
+                    const { top, bottom } = entry.boundingClientRect;
+                    const isPartiallyVisible = (top < window.innerHeight && bottom > 0);
+                    
+                    if (isPartiallyVisible) {
+                        entry.target.classList.add('hidden'); // Hide if partially visible
+                    } else {
+                        entry.target.classList.remove('hidden'); // Ensure visibility if fully out of view
+                    }
                 }
             });
+        }, {
+            threshold: [0, 0.5] // Adjust threshold to control visibility trigger
         });
 
         sections.forEach(section => {
